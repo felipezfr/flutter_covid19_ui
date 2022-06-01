@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         fontFamily: "Poppins",
         textTheme: const TextTheme(bodyText1: TextStyle(color: kBodyTextColor)),
       ),
-      home: const HomePage(),
+      home: const InfoPage(),
     );
   }
 }
