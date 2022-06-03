@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_covid19_ui/widgets/counter_widget.dart';
 import 'package:flutter_covid19_ui/widgets/header_widget.dart';
@@ -16,16 +14,40 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   String _dropdownValue = 'brasil';
+
+  final controller = ScrollController();
+  double offset = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    controller.addListener(onScroll);
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  void onScroll() {
+    setState(() {
+      offset = (controller.hasClients) ? controller.offset : 0;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
+        controller: controller,
         child: Column(
           children: [
-            const HeaderCovid(
+            HeaderCovid(
               image: 'assets/icons/Drcorona.svg',
               textTop: 'All you need',
               textBottom: 'is stay home',
+              offset: offset,
             ),
             Container(
               width: double.infinity,

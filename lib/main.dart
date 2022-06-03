@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_covid19_ui/constant.dart';
 import 'package:flutter_covid19_ui/pages/home_page.dart';
-import 'package:flutter_covid19_ui/pages/info_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +19,7 @@ class MyApp extends StatelessWidget {
         fontFamily: "Poppins",
         textTheme: const TextTheme(bodyText1: TextStyle(color: kBodyTextColor)),
       ),
-      home: const InfoPage(),
+      home: const HomePage(),
     );
   }
 }
